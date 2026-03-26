@@ -1,0 +1,28 @@
+body {
+  background: #121212;
+  color: white;
+  font-family: Arial;
+}
+
+.container {
+  padding: 20px;
+}
+
+.kanban {
+  display: flex;
+  gap: 15px;
+}
+
+.column {
+  flex: 1;
+  background: #1e1e1e;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.card-task {
+  background: #2c2c2c;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
