@@ -6,6 +6,7 @@ export default function Auth({ setSession }) {
   const [password, setPassword] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
   const [erro, setErro] = useState("");
+  const [isRecovering, setIsRecovering] = useState(false);
 
   const login = async () => {
     setErro("");
@@ -13,6 +14,17 @@ export default function Auth({ setSession }) {
     if (error) return setErro(error.message);
     setSession(data.session);
   };
+
+  const recoverSenha = async () => {
+    setErro("");
+    if (!email) return setErro("Digite seu email para recuperar a senha.");
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/reset-password`
+    });
+    if (error) return setErro(error.message);
+    setErro("Instruções para redefinição de senha enviadas para seu email.");
+  };
+
 
   const cadastrar = async () => {
     setErro("");
@@ -34,8 +46,18 @@ export default function Auth({ setSession }) {
         </>
       ) : (
         <>
-          <button onClick={login}>Entrar</button>
-          <button onClick={() => setIsRegistering(true)}>Criar conta</button>
+        <span onClick={recoverSenha} style={{
+           color: "#6c63ff",
+           fontSize: "13px",
+           fontWeight: "500",
+           cursor: "pointer",
+           textAlign: "center",
+           textDecoration: "underline"
+           }}>
+            Esqueci minha senha
+          </span>
+          <button className="btn-primary" onClick={login}>Entrar</button>
+          <button className="btn-secondary" onClick={() => setIsRegistering(true)}>Criar conta</button>
         </>
       )}
     </div>

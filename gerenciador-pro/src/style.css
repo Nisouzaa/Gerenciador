@@ -103,6 +103,7 @@ h1 {
   border-color: #6c63ff;
 }
 
+/* Substitui o .card button:last-child */
 .card button {
   padding: 11px;
   border-radius: 10px;
@@ -119,15 +120,30 @@ h1 {
   background: #574fd6;
 }
 
-.card button:last-child {
+
+.card button.btn-secondary {
   background: transparent;
   border: 1px solid #2a2a3a;
   color: #a0a0b8;
 }
 
-.card button:last-child:hover {
+.card button.btn-secondary:hover {
   background: #1f1f2e;
   color: #e8e8f0;
+}
+
+.card button.btn-link {
+  background: transparent !important;
+  border: none;
+  color: #6c63ff;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 4px;
+}
+
+.card button.btn-link:hover {
+  color: #574fd6;
+  background: transparent;
 }
 
 .card-task {

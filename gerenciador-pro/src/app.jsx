@@ -3,7 +3,7 @@ import { supabase } from "./services/supabase";
 import Auth from "./Auth";
 import KanbanBoard from "./components/kanbanBoard";
 import TaskForm from "./components/tanksform";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navBar.jsx";
 
 export default function App() {
   const [session, setSession] = useState(null);
